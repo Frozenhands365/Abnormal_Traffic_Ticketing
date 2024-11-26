@@ -1,146 +1,146 @@
 @echo off
 rem ##########################################################################
-rem ##  batch make date : 2024.11.26 (ver 1.0)
+rem ##  batch make date : 2024.11.26 (ver 1.3)
 rem ##  writer : lukka
 rem ##  About Lincese : Free
 rem ##  source chage  :  possible 
 rem ##########################################################################
 
-:: ¹Ýº¹/Á¶°Ç¹® »ç¿ëÀ» À§ÇØ µ¿Àû¾÷µ¥ÀÌÆ® Çã¿ë
+:: ë°˜ë³µ/ì¡°ê±´ë¬¸ ì‚¬ìš©ì„ ìœ„í•´ ë™ì ì—…ë°ì´íŠ¸ í—ˆìš©
 setlocal enabledelayedexpansion
 
 
-:: ¹ÙÅÁÈ­¸é °æ·Î ¼³Á¤
+:: ë°”íƒ•í™”ë©´ ê²½ë¡œ ì„¤ì •
 set desktop=%USERPROFILE%\Desktop
 set output_file=%desktop%\result.txt
 
 
-:: ÀÌÀü °á°ú ÆÄÀÏ »èÁ¦ (ÀÖ´Â °æ¿ì)
+:: ì´ì „ ê²°ê³¼ íŒŒì¼ ì‚­ì œ (ìžˆëŠ” ê²½ìš°)
 if exist "%output_file%" del "%output_file%"
-echo °°Àº ÀÌ¸§ÀÇ °á°ú ÆÄÀÏÀ» »èÁ¦ÇÕ´Ï´Ù.
+echo ê°™ì€ ì´ë¦„ì˜ ê²°ê³¼ íŒŒì¼ì„ ì‚­ì œí•©ë‹ˆë‹¤.
 
 
-echo ½Ã½ºÅÛ Á¤º¸ ¼öÁýÀ» ½ÃÀÛÇÕ´Ï´Ù.
-
-echo ############################ >> "%output_file%"
-echo # 1. ½Ã½ºÅÛ Á¤º¸ ¼öÁý ½ÃÀÛ ½Ã°£ ±â·Ï >> "%output_file%"
-echo ############################ >> "%output_file%"
-
-echo ¼öÁý ½ÃÀÛÀÏ½Ã: %date% %time% >> "%output_file%"
-echo ############################ >> "%output_file%"
+echo ì‹œìŠ¤í…œ ì •ë³´ ìˆ˜ì§‘ì„ ì‹œìž‘í•©ë‹ˆë‹¤.
 
 echo ############################ >> "%output_file%"
-echo # 2. OS ¹× ³×Æ®¿öÅ© ±âº» Á¤º¸ ¼öÁý >> "%output_file%"
+echo # 1. ì‹œìŠ¤í…œ ì •ë³´ ìˆ˜ì§‘ ì‹œìž‘ ì‹œê°„ ê¸°ë¡ >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [OS Á¤º¸] >> "%output_file%"
+echo ìˆ˜ì§‘ ì‹œìž‘ì¼ì‹œ: %date% %time% >> "%output_file%"
+echo ############################ >> "%output_file%"
+
+echo ############################ >> "%output_file%"
+echo # 2. OS ë° ë„¤íŠ¸ì›Œí¬ ê¸°ë³¸ ì •ë³´ ìˆ˜ì§‘ >> "%output_file%"
+echo ############################ >> "%output_file%"
+
+echo [OS ì •ë³´] >> "%output_file%"
 systeminfo >> "%output_file%"
 echo ############################ >> "%output_file%"
-echo [³×Æ®¿öÅ© Á¤º¸] >> "%output_file%"
+echo [ë„¤íŠ¸ì›Œí¬ ì •ë³´] >> "%output_file%"
 ipconfig /all >> "%output_file%"
 echo ############################ >> "%output_file%"
 
 echo ############################ >> "%output_file%"
-echo # 3. »ç¿ëÀÚ Á¤º¸ ¼öÁý >> "%output_file%"
+echo # 3. ì‚¬ìš©ìž ì •ë³´ ìˆ˜ì§‘ >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [»ç¿ëÀÚ Á¤º¸] >> "%output_file%"
+echo [ì‚¬ìš©ìž ì •ë³´] >> "%output_file%"
 whoami >> "%output_file%"
-:: ½Ã½ºÅÛ¿¡ µî·ÏµÈ ¸ðµç »ç¿ëÀÚ °èÁ¤ Á¤º¸
+:: ì‹œìŠ¤í…œì— ë“±ë¡ëœ ëª¨ë“  ì‚¬ìš©ìž ê³„ì • ì •ë³´
 net user >> "%output_file%"
 echo ############################ >> "%output_file%"
 
 echo ############################ >> "%output_file%"
-echo # 4. °øÀ¯ Á¤º¸ >> "%output_file%"
+echo # 4. ê³µìœ  ì •ë³´ >> "%output_file%"
 echo ############################ >> "%output_file%"
-echo [°øÀ¯ Á¤º¸] >> "%output_file%"
-:: °øÀ¯ ÁßÀÎ Æú´õ ¹× ÀÚ¿ø È®ÀÎ
+echo [ê³µìœ  ì •ë³´] >> "%output_file%"
+:: ê³µìœ  ì¤‘ì¸ í´ë” ë° ìžì› í™•ì¸
 net share >> "%output_file%"
 echo ############################ >> "%output_file%"
 
 echo ############################ >> "%output_file%"
-echo # 5. ½Ã½ºÅÛ ±âº» º¸¾È ¼³Á¤ >> "%output_file%"
+echo # 5. ì‹œìŠ¤í…œ ê¸°ë³¸ ë³´ì•ˆ ì„¤ì • >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [±âº» º¸¾È ¼³Á¤] >> "%output_file%"
-:: º¸¾È °¨»ç Á¤Ã¥À» Ãâ·Â
+echo [ê¸°ë³¸ ë³´ì•ˆ ì„¤ì •] >> "%output_file%"
+:: ë³´ì•ˆ ê°ì‚¬ ì •ì±…ì„ ì¶œë ¥
 auditpol /get /category:* >> "%output_file%"
 echo ############################ >> "%output_file%"
 
 echo ############################ >> "%output_file%"
-echo # 6. ½ÇÇà ÁßÀÎ ¼­ºñ½º ¸ñ·Ï >> "%output_file%"
+echo # 6. ì‹¤í–‰ ì¤‘ì¸ ì„œë¹„ìŠ¤ ëª©ë¡ >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [½ÇÇà ÁßÀÎ ¼­ºñ½º ¸ñ·Ï] >> "%output_file%"
-:: ½ÇÇà ÁßÀÎ ¼­ºñ½º ¸ñ·ÏÀ» ÀúÀå
+echo [ì‹¤í–‰ ì¤‘ì¸ ì„œë¹„ìŠ¤ ëª©ë¡] >> "%output_file%"
+:: ì‹¤í–‰ ì¤‘ì¸ ì„œë¹„ìŠ¤ ëª©ë¡ì„ ì €ìž¥
 sc.exe query type= service >> "%output_file%"
 echo ############################ >> "%output_file%"
 
 echo ############################ >> "%output_file%"
-echo # 7. °øÀ¯µÈ ÆÄÀÏ ½ÇÇà ¿©ºÎ >> "%output_file%"
+echo # 7. ê³µìœ ëœ íŒŒì¼ ì‹¤í–‰ ì—¬ë¶€ >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [°øÀ¯µÈ ÆÄÀÏ ½ÇÇà ¿©ºÎ] >> "%output_file%"
-:: °øÀ¯µÈ ÆÄÀÏÀÌ »ç¿ë ÁßÀÎÁö È®ÀÎ ¹× ±â·Ï
+echo [ê³µìœ ëœ íŒŒì¼ ì‹¤í–‰ ì—¬ë¶€] >> "%output_file%"
+:: ê³µìœ ëœ íŒŒì¼ì´ ì‚¬ìš© ì¤‘ì¸ì§€ í™•ì¸ ë° ê¸°ë¡
 net file >> "%output_file%"
 echo ############################ >> "%output_file%"
 
 echo ############################ >> "%output_file%"
-echo #  8. ÇÁ·Î¼¼½º Á¤º¸ >> "%output_file%"
+echo #  8. í”„ë¡œì„¸ìŠ¤ ì •ë³´ >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [ÇÁ·Î¼¼½º Á¤º¸] >> "%output_file%"
-:: ÇöÀç ½ÇÇà ÁßÀÎ ÇÁ·Î¼¼½º ¸ñ·Ï È®ÀÎ ¹× ±â·Ï
+echo [í”„ë¡œì„¸ìŠ¤ ì •ë³´] >> "%output_file%"
+:: í˜„ìž¬ ì‹¤í–‰ ì¤‘ì¸ í”„ë¡œì„¸ìŠ¤ ëª©ë¡ í™•ì¸ ë° ê¸°ë¡
 tasklist >> "%output_file%"
 echo ############################ >> "%output_file%"
 
 echo ############################ >> "%output_file%"
-echo # 9. ³×Æ®¿öÅ© °ü·Ã Á¤º¸ >> "%output_file%"
+echo # 9. ë„¤íŠ¸ì›Œí¬ ê´€ë ¨ ì •ë³´ >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [³×Æ®¿öÅ© °ü·Ã Á¤º¸] >> "%output_file%"
-:: ³×Æ®¿öÅ© ¿¬°á »óÅÂ ¹× Æ÷Æ® Á¤º¸ ±â·Ï
+echo [ë„¤íŠ¸ì›Œí¬ ê´€ë ¨ ì •ë³´] >> "%output_file%"
+:: ë„¤íŠ¸ì›Œí¬ ì—°ê²° ìƒíƒœ ë° í¬íŠ¸ ì •ë³´ ê¸°ë¡
 netstat -ano >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [³×Æ®¿öÅ© °ü·Ã Á¤º¸ - ARP Å×ÀÌºí] >> "%output_file%"
+echo [ë„¤íŠ¸ì›Œí¬ ê´€ë ¨ ì •ë³´ - ARP í…Œì´ë¸”] >> "%output_file%"
 arp -a >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [³×Æ®¿öÅ© °ü·Ã Á¤º¸ - DNS Ä³½Ã] >> "%output_file%"
+echo [ë„¤íŠ¸ì›Œí¬ ê´€ë ¨ ì •ë³´ - DNS ìºì‹œ] >> "%output_file%"
 ipconfig /displaydns >> "%output_file%"
 echo ############################ >> "%output_file%"
 
 echo ############################ >> "%output_file%"
-echo # 10. ÆÄÀÏ »ý¼º/¼öÁ¤/Á¢±Ù ÀÌ·Â  >> "%output_file%"
+echo # 10. íŒŒì¼ ìƒì„±/ìˆ˜ì •/ì ‘ê·¼ ì´ë ¥  >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [ÆÄÀÏ ½Ã½ºÅÛ Á¢±Ù °¨»ç ¼³Á¤ È®ÀÎ] >> "%output_file%"
-auditpol /get /subcategory:"ÆÄÀÏ ½Ã½ºÅÛ" >> "%output_file%"
+echo [íŒŒì¼ ì‹œìŠ¤í…œ ì ‘ê·¼ ê°ì‚¬ ì„¤ì • í™•ì¸] >> "%output_file%"
+auditpol /get /subcategory:"íŒŒì¼ ì‹œìŠ¤í…œ" >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-:: wevtutil¿¡¼­ ÀÌº¥Æ® ·Î±×(4663¹ø)À» Äõ¸®/Á¶È¸
-echo [ÆÄÀÏ »ý¼º/¼öÁ¤/Á¢±Ù ÀÌ·Â] >> "%output_file%"
-echo **°¨»ç¼³Á¤ÀÌ µÇ¾î ÀÖÁö ¾ÊÀ¸¸é Ç¥½ÃµÇÁö ¾ÊÀ» ¼ö ÀÖ½À´Ï´Ù.** >> "%output_file%"
-:: wevtutil qe Security /q:"*[System[(EventID=4663)]]" /f:text /c:10 >> "%output_file%" ¾Æ·¡¿Í °°ÀÌ ¼öÁ¤ÇÔ
+:: wevtutilì—ì„œ ì´ë²¤íŠ¸ ë¡œê·¸(4663ë²ˆ)ì„ ì¿¼ë¦¬/ì¡°íšŒ
+echo [íŒŒì¼ ìƒì„±/ìˆ˜ì •/ì ‘ê·¼ ì´ë ¥] >> "%output_file%"
+echo **ê°ì‚¬ì„¤ì •ì´ ë˜ì–´ ìžˆì§€ ì•Šìœ¼ë©´ í‘œì‹œë˜ì§€ ì•Šì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.** >> "%output_file%"
+:: wevtutil qe Security /q:"*[System[(EventID=4663)]]" /f:text /c:10 >> "%output_file%" ì•„ëž˜ì™€ ê°™ì´ ìˆ˜ì •í•¨
 wevtutil qe Security /f:text | findstr /i "FileSystem" >>"%output_file%"
 echo ############################ >> "%output_file%"
 
 echo ############################ >> "%output_file%"
-echo # 11. ½ÃÀÛ ÇÁ·Î±×·¥ ¸ñ·Ï >> "%output_file%"
+echo # 11. ì‹œìž‘ í”„ë¡œê·¸ëž¨ ëª©ë¡ >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo [½ÃÀÛ ÇÁ·Î±×·¥ ¸ñ·Ï] >> "%output_file%"
+echo [ì‹œìž‘ í”„ë¡œê·¸ëž¨ ëª©ë¡] >> "%output_file%"
 reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Run >> "%output_file%"
 echo ############################ >> "%output_file%"
 
 echo ############################ >> "%output_file%"
-echo # ½Ã½ºÅÛ Á¤º¸ ¼öÁý Á¾·á ½Ã°£ ±â·Ï >> "%output_file%"
+echo # ì‹œìŠ¤í…œ ì •ë³´ ìˆ˜ì§‘ ì¢…ë£Œ ì‹œê°„ ê¸°ë¡ >> "%output_file%"
 echo ############################ >> "%output_file%"
 
-echo ½Ã½ºÅÛ Á¤º¸ ¼öÁýÀÌ Á¾·áµÇ¾ú½À´Ï´Ù.
+echo ì‹œìŠ¤í…œ ì •ë³´ ìˆ˜ì§‘ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.
 echo ############################
-echo ¼öÁý Á¾·áÀÏ½Ã: %date% %time% >> "%output_file%"
+echo ìˆ˜ì§‘ ì¢…ë£Œì¼ì‹œ: %date% %time% >> "%output_file%"
 
-echo ½Ã½ºÅÛ Á¤º¸°¡ ¹ÙÅÁÈ­¸éÀÇ result.txt¿¡ ÀúÀåµÇ¾ú½À´Ï´Ù.
+echo ì‹œìŠ¤í…œ ì •ë³´ê°€ ë°”íƒ•í™”ë©´ì˜ result.txtì— ì €ìž¥ë˜ì—ˆìŠµë‹ˆë‹¤.
 pause
